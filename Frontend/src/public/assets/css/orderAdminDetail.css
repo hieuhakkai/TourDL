@@ -1,0 +1,114 @@
+.order-detail{
+    width: 100%;
+    padding: 10px;
+}
+.order-detail-title{
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+.form-infor{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.infor-order-date{
+    margin-right: 50px;
+}
+.item-infor{
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 600;
+}
+.infor-tour{
+    padding: 10px;
+}
+.infor-tour-header,
+
+.infor-tour-data{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.infor-tour-header{
+    background-color: rgb(70, 156, 255);
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+.infor-tour-header-data{
+    font-weight: 600;
+}
+.infor-tour-header-data,
+.infor-tour-ele{
+    width: 10%;
+    text-align: center;
+    padding: 10px 0px;
+}
+.infor-member{
+    padding: 10px;
+}
+.infor-member-header,
+
+.infor-member-data{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.infor-member-header{
+    background-color: rgb(70, 156, 255);
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+.infor-member-header-data{
+    font-weight: 600;
+}
+.infor-member-header-data,
+.infor-member-ele{
+    width: 20%;
+    text-align: center;
+    padding: 10px 0px;
+}
+.infor-member-ele{
+    border-bottom: 1px solid rgb(214, 212, 212);
+}
+.order-detail-button{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.button-close{
+    border: none;
+    font-weight: 650;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(255, 217, 0);
+    font-size: 18px;
+    cursor: pointer;
+}
+.button-submit{
+    border: none;
+    font-weight: 650;
+    height: 40px;
+    /* width: 100px; */
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.button-cancel{
+    border: none;
+    font-weight: 650;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}

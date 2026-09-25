@@ -1,0 +1,213 @@
+.voucher__admin{
+    width: 100%;
+    /* position: relative; */
+}
+.voucher__admin--table{
+    padding: 10px;
+}
+.voucher__admin--table--header,
+.voucher__admin--table--rows{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid black;
+
+}
+.voucher__admin--table--rows--disable{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #9400d3;
+    color: white;
+}
+.voucher__admin--table--header{
+    background-color: rgb(77, 190, 255);
+    position: sticky;
+    top: 0;
+    font-weight: 750;
+    font-size: 18px;
+}
+.voucher__admin--table--body{
+    width: 100%;;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+.voucher__admin--table--title,
+.voucher__admin--table--data{   
+text-align: center;
+padding: 10px;
+width: 150px;
+}
+.voucher__admin--table--data img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+
+}
+.voucher__admin--table--rows:nth-child(even){
+    background-color: rgb(224, 224, 224);
+}
+.voucher__admin--table--title:nth-child(1),
+.voucher__admin--table--data:nth-child(1){
+    width: 30px;
+}
+.voucher__admin--table--title,
+.voucher__admin--table--data{
+    width: calc((100% - 30px)/6)
+}
+
+.voucher__admin--overview{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.voucher__admin--report{
+    height: 100px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 15%;
+    border-radius: 10px;
+    color: white;
+}
+.voucher__admin--report:nth-child(2){
+    background-color: rgb(255, 187, 0);
+}
+.voucher__admin--report:nth-child(3){
+    background-color: rgb(0, 153, 255);
+}
+.voucher__admin--report--title{
+    color: #0b0909;
+    font-size: 25px;
+    font-weight: 600;
+}
+.voucher__admin--report--value{
+    color: #0b0909;
+    font-size: 30px;
+    font-weight: 600;
+}
+.voucher__admin--function{
+display: flex;
+padding: 10px;
+}
+.action__search ,
+.box__action--button{
+    width: 40%;
+    border: 1px solid rgb(218, 218, 218);
+    position: relative;
+    padding: 10px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.box__action--button{
+    width: 60%;
+}
+.action__search--text{
+    width: 100%;
+    padding: 5px ;
+    border: none;
+}
+.action__search--text:focus{
+    outline: none;
+}
+.action__search--title,
+.box__action--title{
+    position: absolute;
+    top:-15px ;
+    left: 20px;
+    background-color: white;
+    font-weight: 600;
+}
+.action__button{
+    padding: 5px;
+    border: none;
+    width: 120px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.action__add{
+    background-color: #39c449;
+    color: white;
+}
+.action__refresh{
+    background-color: #009efb;
+    color: white;
+}
+.action__delete{
+    background-color: darkviolet;
+    color: white;
+}
+.action__lock{
+    background-color: red;
+    color: white;
+}
+.action__warnning{
+    background-color: yellow;
+}
+.action__button{
+    cursor: pointer;
+}
+.button--page{
+    text-align: right;
+}
+.button--page button{
+    border-radius: 20px;
+    background-color: rgb(240, 244, 244);
+    margin: 5px;
+    padding: 5px;
+}
+.button--page button:hover {
+    background-color:antiquewhite; /* Đổi màu nền khi hover */
+    color: #0b0909; /* Đổi màu chữ khi hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng sáng lên (shadow) */
+}
+.button--page {
+    display: flex; /* Hiển thị theo hàng ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    margin: 20px 0; /* Khoảng cách trên/dưới */
+  }
+
+  .button--page button {
+    background-color: #4CAF50; /* Màu nền xanh lá */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Loại bỏ viền */
+    border-radius: 5px; /* Bo tròn các góc */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+  }
+
+  .button--page button:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+  }
+
+  .numberPage {
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: bold; /* In đậm chữ */
+    color: #333; /* Màu chữ */
+  }
+  .action__adddetail{
+    background-color: rgb(203, 46, 164);
+    color: white;
+
+  }
+  .action__remove{
+    background-color: rgb(203, 46, 164);
+    color: white;
+  }

@@ -1,0 +1,235 @@
+/* Tổng quan user admin */
+.user__admin {
+  width: 100%;
+  padding: 10px;
+}
+
+.user__admin--table {
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.user__admin--table--header,
+.user__admin--table--rows {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.user__admin--table--rows--disable {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #d269ff;
+  color: white;
+  opacity: 0.5;
+}
+
+.user__admin--table--row {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  /* border: 1px solid black; */
+  /* justify-content: center; */
+}
+
+/* Thêm màu cho các cột bị khóa */
+.user__admin--table--row.locked {
+  background-color: #f8d7da;
+  /* Màu nền đỏ nhẹ */
+}
+
+.user__admin--table--data.locked-column {
+  background-color: #f8d7da;
+  /* Màu nền cho từng cột */
+  color: #721c24;
+  /* Màu chữ */
+}
+
+.user__admin--table--header {
+  background-color: #bce3ff;
+  position: sticky;
+  top: 0;
+  font-weight: 750;
+  font-size: 18px;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 1;
+}
+
+.user__admin--table--body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+}
+
+.user__admin--table--title {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.user__admin--table--data {
+  font-size: 16px;
+}
+
+.user__admin--table--title,
+.user__admin--table--data {
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+}
+
+.user__admin--table--rows:nth-child(even) {
+  background-color: rgb(224, 224, 224);
+}
+
+.user__admin--table--title:nth-child(1),
+.user__admin--table--data:nth-child(1) {
+  width: 30px;
+}
+
+.user__admin--table--title,
+.user__admin--table--data {
+  width: calc((100% - 30px) / 6);
+}
+
+/* Phần tổng quan */
+.user__admin--overview {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #bce3ff;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.user__admin--report {
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.user__admin--report:nth-child(2) {
+  background-color: rgb(255, 255, 255);
+}
+
+.user__admin--report:nth-child(3) {
+  background-color: rgb(255, 255, 255);
+}
+
+.user__admin--report--title {
+  font-size: 18px;
+  /* font-weight: 600; */
+}
+
+.user__admin--report--value {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/* Phần chức năng */
+.user__admin--function {
+  display: flex;
+  margin: 20px 0px;
+}
+
+.action__search,
+.box__action--button {
+  width: 40%;
+  border: 1px solid rgb(218, 218, 218);
+  position: relative;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.box__action--button {
+  width: 60%;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.action__search {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.action__search--text {
+  width: 100%;
+  padding: 5px;
+  border: none;
+}
+
+.action__search--text:focus {
+  outline: none;
+}
+
+.action__search--title,
+.box__action--title {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background-color: white;
+  font-weight: 600;
+}
+
+.action__button {
+  padding: 10px;
+  border: none;
+  width: 120px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.action__refresh {
+  background-color: #009efb;
+  color: white;
+}
+
+.action__look {
+  background-color: darkviolet;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination button:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not([disabled]) {
+  background-color: #0056b3;
+  color: white;
+}

@@ -1,0 +1,133 @@
+.tour-crud{
+    display: flex;
+    width: 100%;
+}
+.tour__admin--add-form {
+    width: 85%;
+}
+.tour__admin--add-form.show {
+    display: block;
+    top: 60px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #444;
+}
+.tour__admin--table{
+    padding: 10px;
+}
+.tour__admin--table--header,
+.tour__admin--table--rows{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid black;
+
+}
+.tour__admin--table--header{
+    background-color: rgb(77, 190, 255);
+    position: sticky;
+    top: 0;
+    font-weight: 750;
+    font-size: 18px;
+}
+.tour__admin--table--body{
+    width: 100%;;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+.tour__admin--table--title,
+.tour__admin--table--data{   
+text-align: center;
+padding: 10px;
+width: 150px;
+}
+.tour__admin--table--rows:nth-child(even){
+    background-color: rgb(224, 224, 224);
+}
+.tour__admin--table--title:nth-child(1),
+.tour__admin--table--data:nth-child(1){
+    width: 30px;
+}
+.tour__admin--table--title,
+.tour__admin--table--data{
+    width: calc((100% - 30px)/6)
+}
+.voucher__admin--function{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    }
+.action__search ,
+.box__action--button{
+        width: 40%;
+        border: 1px solid rgb(218, 218, 218);
+        position: relative;
+        padding: 10px ;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .box__action--button{
+        width: 60%;
+    }
+    .action__search--text{
+        width: 100%;
+        padding: 5px ;
+        border: none;
+    }
+    .action__search--text:focus{
+        outline: none;
+    }
+    .action__search--title,
+    .box__action--title{
+        position: absolute;
+        top:-15px ;
+        left: 20px;
+        background-color: white;
+        font-weight: 600;
+    }
+    .action__button{
+        padding: 5px;
+        border: none;
+        width: 120px;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+    .action__add{
+        background-color: #39c449;
+        color: white;
+    }
+    .action__refresh{
+        background-color: #009efb;
+        color: white;
+    }
+    .action__delete{
+        background-color: darkviolet;
+        color: white;
+    }
+    .action__lock{
+        background-color: red;
+        color: white;
+    }
+    .action__warnning{
+        background-color: yellow;
+    }
+    .action__button{
+        cursor: pointer;
+    }

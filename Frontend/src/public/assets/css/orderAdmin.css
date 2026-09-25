@@ -1,0 +1,216 @@
+.order-admin{
+    width: 100%;
+    padding: 10px;
+}
+.order-admin-overview{
+    width: 100%;
+    display: flex;
+    background-color: #bce3ff;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+.overview-pendding{
+    width: 20%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.pending-title-icon{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.pending-title,
+.received-title,
+.completed-title,
+.canceled-title{
+    font-size: 18px;
+    font-weight: 550;
+}
+.pending-icon,
+.received-icon,
+.completed-icon,
+.canceled-icon{
+    font-size: 25px;
+    background-color: rgb(178, 224, 255);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pending-value,
+.received-value,
+.completed-value,
+.canceled-value{
+    text-align: center;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.received-icon{
+    background-color: rgb(255, 255, 174);
+}
+.completed-icon{
+    background-color: #b2f7e2;
+}
+.canceled-icon{
+    background-color: rgb(253, 146, 146);
+}
+.order__admin--function{
+    display: flex;
+    margin: 20px 0px;
+}
+.action__search ,
+.box__action--button{
+    width: 40%;
+    border: 1px solid rgb(218, 218, 218);
+    position: relative;
+    padding: 10px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.action__search{
+    border-radius: 10px 0px 0px 10px;
+}
+.box__action--button{
+    width: 60%;
+    border-radius: 0px 10px 10px 0px;
+}
+.action__search--text{
+    width: 100%;
+    padding: 5px ;
+    border: none;
+}
+.action__search--text:focus{
+    outline: none;
+}
+.action__search--title,
+.box__action--title{
+    position: absolute;
+    top:-15px ;
+    left: 20px;
+    background-color: white;
+    font-weight: 600;
+}
+.action__button{
+    padding: 10px;
+    border: none;
+    width: 120px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.action__pendding{
+    background-color: #009efb;
+    color: white;
+}
+.action__received{
+    background-color: #FFD43B;
+    color: rgb(0, 0, 0);
+}
+.action__completed{
+    background-color: green;
+    color: white;
+}
+.action__canceled{
+    background-color: red;
+    color: white;
+}
+.order-admin-table{
+    /* padding: 10px; */
+}
+.action__button{
+    cursor: pointer;
+}
+.table-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 19px;
+    background-color: #84d2ff;
+    /* padding: 10px; */
+    border-radius: 10px 10px 0px 0px;
+}
+.table-row-data{
+    padding: 10px;
+    min-height: 400px;
+}
+.table-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.table-data,
+.table-header-data{
+    text-align: center;
+    width: 15%;
+    padding: 10px;
+}
+.table-row{
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+.table-data-view{
+    border: none;
+    padding: 10px;
+    border-radius:10px;
+    font-weight: 600;
+    background-color: rgb(43, 142, 255);
+    color: #fff;
+    cursor: pointer;
+}
+.pagination{
+    position: sticky;
+    bottom: 0;
+}
+.page-item{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+.prev-page, .next-page{
+    width: 80px;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 550;
+    border-radius: 10px;
+    background-color: #009efb;
+    cursor: pointer;
+    color: white;
+}
+.page-numbers{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+.page-number-active{
+    background-color: #009efb;
+    color: white;
+}
+
+.page-item{
+    background-color: rgba(196, 196, 196, 0.678);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.disabled{
+    cursor: not-allowed;
+    color: black;
+    opacity: 0.5;
+}

@@ -1,0 +1,63 @@
+.voucher-crud{
+    display: flex;
+    width: 100%;
+}
+.voucher__admin--add-form {
+    width: 85%;
+}
+.voucher-crud-title{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(0, 140, 255);
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+    margin: 0;
+}
+.voucher__admin--add-form.show {
+    display: block;
+    top: 60px;
+}
+.crud-voucher-form{
+    width: 50%;
+    margin: auto;
+}
+.form-label{
+    padding: 5px;
+}
+.form-label-value{
+    display: flex;
+    flex-direction: column;
+}
+.voucher-input{
+    padding: 10px;
+}
+.form-button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+.form-button-submit{
+    width: 100px;
+    padding: 10px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-button-cancel{
+    width: 100px;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+}
