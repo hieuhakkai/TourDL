@@ -1,29 +1,7 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: tourdlhdv
--- ------------------------------------------------------
--- Server version	8.0.37
 DROP DATABASE IF EXISTS `tourdlhdv`;
 CREATE DATABASE tourdlhdv;
 USE tourdlhdv;
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `member`
---
-
 DROP TABLE IF EXISTS `member`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `member` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) DEFAULT NULL,
@@ -35,24 +13,9 @@ CREATE TABLE `member` (
   KEY `tourOrderID` (`tour_order_id`),
   CONSTRAINT `member_ibfk_1` FOREIGN KEY (`tour_order_id`) REFERENCES `tour_order` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `member`
---
-
 LOCK TABLES `member` WRITE;
-/*!40000 ALTER TABLE `member` DISABLE KEYS */;
-/*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tour`
---
-
 DROP TABLE IF EXISTS `tour`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour` (
   `id` varchar(30) NOT NULL,
   `name` text,
@@ -70,25 +33,10 @@ CREATE TABLE `tour` (
   CONSTRAINT `tour_ibfk_1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`),
   CONSTRAINT `tour_ibfk_2` FOREIGN KEY (`tour_type_id`) REFERENCES `tour_type` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tour`
---
-
 LOCK TABLES `tour` WRITE;
-/*!40000 ALTER TABLE `tour` DISABLE KEYS */;
 INSERT INTO `tour` VALUES ('NDHAN131','Mộc Châu - Sơn La - Điện Biên',4390000,'https://media.travel.com.vn/Tour/tfd_240112081758_526525_SONG%20DA.jpg','','Tây Bắc','Hà Nội',60,1,1),('NDSGN103','Hà Nội - Vịnh Hạ Long - Chùa Bái Đính - Tràng An - Tuyệt Tịnh Cốc',9190000,'https://media.travel.com.vn/Tour/tfd_240925021246_699305_TRANG%20AN%20(6).jpg',NULL,'Vịnh Hạ Long','TP.Hồ Chí Minh',80,1,3),('NDSGN155','Đông Bắc - Ngược dòng sông Gâm | Tuyên Quang - Lâm Bình - Bắc Mê - Mèo Vạc - Đồng Văn - Quản Bạ - Hà Giang',10990000,'https://media.travel.com.vn/TourFiles/3378/N%C3%BAi%20%C4%90%E1%BB%95,%20B%E1%BA%AFc%20M%C3%AA%20(2).jpg',NULL,'Hà Giang','TP.Hồ Chí Minh',30,1,1),('NDSGN1733','Tây Bắc: Hà Nội - Nghĩa Lộ - Tú Lệ - Mù Cang Chải - Sa Pa - Fansipan - Bản Cát Cát - Lai Châu - Điện Biên - Sơn La - Mộc Châu - Cầu kính Bạch Long',9990000,'https://media.travel.com.vn/Tour/tfd_240925112715_103994_LE%20HOI%20DEN%20HUNG.jpg',NULL,'Tây Bắc','TP.Hồ Chí Minh',50,1,1),('NDSGN307','Đà Nẵng - Phố Cổ Hội An - Bà Nà - Cầu Vàng - Vườn Tượng Apec - Cầu Tình Yêu',3590000,'https://media.travel.com.vn/TourFiles/4967/Hoi%20An%20Ve%20Dem%20(4).jpg',NULL,'Đà Nẵng','TP.Hồ Chí Minh',80,1,2),('NDSGN556','Phan Thiết - Đồi Cát Trinh Nữ - Làng Chài Xưa',3390000,'https://media.travel.com.vn/TourFiles/7780/Bau%20Trang%20lake.jpg',NULL,'Phan Thiết','TP.Hồ Chí Minh',45,2,2),('NDSGN818','Phú Quốc: Thành phố không ngủ Grand World - Chợ đêm Vui Phết - Kiss Bridge - Lưu trú tại Thị trấn Hoàng Hôn - Tặng vé cáp treo khứ hồi Sunworld Hòn Thơm Nature Park',3190000,'https://media.travel.com.vn/Tour/tfd_241008113206_355062_GRAND%20WORLD%20(28).jpg',NULL,'Phú Quốc','TP.Hồ Chí Minh',100,1,2),('NDSGN871','Phú Quốc - Sun World Hon Thom Nature Park Cáp Treo 3 Dây Vượt Biển Dài Nhất Thế Giới Công Viên Nước Aquatopia Thị Trấn Hoàng Hôn - Kiss Bridge - Bãi Sao',4990000,'https://media.travel.com.vn/Tour/tfd_240131095355_074901_SUN%20WORLD%20HON%20THOM%20(4).jpg',NULL,'Phú Quốc','TP.Hồ Chí Minh',150,1,1),('NDSGN879','Phú Quốc: Thiên đường giải trí Vinwonder - Safari World - Hòn Thơm Nature Park - Cáp Treo Vượt Biển - Công Viên Nước Aquatopia',5990000,'https://media.travel.com.vn/TourFiles/10459/Aquatopia%20(6).jpg',NULL,'Phú Quốc','TP.Hồ Chí Minh',150,1,1),('NDSGN880','Khám Phá Tây Ninh - Vùng Đất Địa Linh - Chinh Phục Đỉnh Thiêng',1390000,'https://media.travel.com.vn/TourFiles/6342/CHUA%20HANG.jpg',NULL,'Tây Ninh','TP.Hồ Chí Minh',80,2,1),('NDSGN91','Miền Bắc: Sapa - Ngỡ Lạc Giữa Trời Âu (Trải Nghiệm Đẳng Cấp 5 sao Hôtel de la Coupole - MGallery)',37990000,'https://media.travel.com.vn/Tour/tfd_230621060253_761592_restaurant.jpg',NULL,'Sapa','TP.Hồ Chí Minh',80,1,4),('NDSGN98','Miền Bắc: Hạ Long - Vịnh Lan Hạ - Cát Bà - Vũ Điệu biển khơi ( Trải nghiệm du thuyền đằng cấp Paradise Grand & M-Gallery Hotel Perle D’Orient )',39990000,'https://media.travel.com.vn/Tour/tfd_230719052427_625034_Paradise%20Grand.jpg',NULL,'Hạ Long','TP.Hồ Chí Minh',80,1,4),('NDSGN99','Miền Tây: Khám Phá Hành Trình Xuôi Dòng Mê Kông Ấn Tượng (Trải nghiêm dịch vụ đẳng cấp 5 sao Azerai Cần Thơ Resort)',19990000,'https://media.travel.com.vn/Tour/tfd_230914015810_104707_Pool%20(resize).jpg',NULL,'Miền Tây','TP.Hồ Chí Minh',50,1,4),('NNSGN100','Campuchia: Siem Reap - Phnom Penh (Khách Sạn 4*)',6490000,'https://media.travel.com.vn/Tour/tfd_240925050021_432655_Angkor%20Thom.jpg',NULL,'Campuchia','TP.Hồ Chí Minh',50,2,3),('NNSGN1362','Thái Lan: Pattaya - Bangkok (Khách Sạn 5 Sao, Vườn Lan Nong Nooch, Tham Quan Wat Arun, Chợ Nổi Damnoen Saduak, Thưởng Thức Buffet Tối Tại Baiyoke Sky)',10990000,'https://media.travel.com.vn/Tour/tfd_240925035227_181920_Wat%20Arun%20temple.jpg',NULL,'Thái Lan','TP.Hồ Chí Minh',200,1,3),('NNSGN138','Thái Lan: Vé Máy Bay Khứ Hồi Tp.HCM – Bangkok - Tp.HCM - Đã bao gồm 20kg ký gửi',2200000,'https://media.travel.com.vn/Tour/tfd_240927114330_659298_BKK%20shopping%20mall.jpg',NULL,'Thái Lan','TP.Hồ Chí Minh',200,1,2),('NNSGN193','Singapore (Tặng vé tham quan Cloud Forest và Supertree Observatory, tặng Khu vườn giác quan Sensory Scape)',14490000,'https://media.travel.com.vn/Tour/tfd_240925024218_698234_Bay%20South%20Garden.jpg',NULL,'Singapore','TP.Hồ Chí Minh',200,1,3),('NNSGN230','Indonesia - Bali: Đền suối thiêng Tampak Siring - Thác nước Blangsinga - Bali Bird Park',12990000,'https://media.travel.com.vn/Tour/tfd_240925032232_997335_Tanah%20Lot%20Temple.jpg',NULL,'Indonesia','TP.Hồ Chí Minh',200,1,3),('NNSGN392','Trung Quốc: Nghi Xương - Công viên Trương Gia Giới - Phượng Hoàng cổ trấn - Hồ Bảo Phong - Đập Tam Hiệp',15990000,'https://media.travel.com.vn/Tour/tfd_240222033852_573340_Phoenix%20Town.jpg',NULL,'Trung Quốc','TP.Hồ Chí Minh',200,1,2),('NNSGN94','Dubai: Du Thuyền Vịnh Marina Bay – Bữa tối trên không – Cafe bánh phủ vàng – Buffet tại khách sạn 5* - Tham quan vườn hoa Miracle',74990000,'https://media.travel.com.vn/Tour/tfd_240422104142_550582_dubai.jpg',NULL,'Dubai','TP.Hồ Chí Minh',200,1,4),('NNSGN99','Nhật Bản: Tokyo - Núi Phú Sĩ - Oshino Hakkai - Kyoto - Osaka ( Trải Nghiệm Trực Thăng, Ăn Tối Du Thuyền Vịnh Tokyo, Thưởng Thức Bò Kobe)',159990000,'https://media.travel.com.vn/Tour/tfd_230807112605_542410_Kiyomizu-dera%20Temple.JPG',NULL,'Nhật Bản','TP.Hồ Chí Minh',200,1,4);
-/*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tour_calendar`
---
-
 DROP TABLE IF EXISTS `tour_calendar`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour_calendar` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `start_date` date DEFAULT NULL,
@@ -100,25 +48,13 @@ CREATE TABLE `tour_calendar` (
   CONSTRAINT `tour_calendar_ibfk_1` FOREIGN KEY (`voucher_Id`) REFERENCES `voucher` (`id`),
   CONSTRAINT `tour_calendar_ibfk_2` FOREIGN KEY (`tour_Id`) REFERENCES `tour` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tour_calendar`
---
 
 LOCK TABLES `tour_calendar` WRITE;
-/*!40000 ALTER TABLE `tour_calendar` DISABLE KEYS */;
 INSERT INTO `tour_calendar` VALUES (1,'2024-11-05',NULL,'NDSGN155'),(2,'2024-11-19',NULL,'NDSGN155'),(3,'2024-11-02',NULL,'NDSGN103'),(4,'2024-11-07',NULL,'NDSGN103'),(5,'2024-11-07',NULL,'NNSGN100'),(6,'2024-11-14',NULL,'NNSGN100'),(7,'2024-11-12',NULL,'NNSGN1362'),(8,'2024-11-16',NULL,'NNSGN1362'),(9,'2024-11-16',NULL,'NNSGN193'),(10,'2024-11-23',NULL,'NNSGN193'),(11,'2024-11-16',NULL,'NNSGN230'),(12,'2024-11-23',NULL,'NNSGN230'),(13,'2024-11-14',NULL,'NDSGN1733'),(14,'2024-11-21',NULL,'NDSGN1733'),(15,'2024-10-25',NULL,'NDSGN871'),(16,'2024-10-27',NULL,'NDSGN871'),(17,'2024-10-27',NULL,'NDSGN879'),(18,'2024-11-17',NULL,'NDSGN879'),(19,'2024-10-27',NULL,'NDSGN880'),(20,'2024-11-03',NULL,'NDSGN880'),(21,'2024-10-25',NULL,'NDSGN307'),(22,'2024-10-31',NULL,'NDSGN307'),(23,'2024-10-25',NULL,'NDSGN556'),(24,'2024-11-08',NULL,'NDSGN556'),(25,'2024-10-25',NULL,'NDSGN818'),(26,'2024-11-01',NULL,'NDSGN818'),(27,'2024-10-25',NULL,'NNSGN138'),(28,'2024-10-26',NULL,'NNSGN138'),(29,'2024-10-28',NULL,'NNSGN138'),(30,'2024-11-02',NULL,'NNSGN392'),(31,'2024-11-07',NULL,'NNSGN392'),(32,'2024-11-01',NULL,'NDSGN91'),(33,'2024-11-08',NULL,'NDSGN91'),(34,'2024-11-01',NULL,'NDSGN98'),(35,'2024-11-08',NULL,'NDSGN98'),(36,'2024-11-02',NULL,'NDSGN99'),(37,'2024-11-09',NULL,'NDSGN99'),(38,'2024-11-01',NULL,'NNSGN94'),(39,'2024-11-08',NULL,'NNSGN94'),(40,'2024-11-08',NULL,'NNSGN99'),(41,'2024-11-15',NULL,'NNSGN99');
-/*!40000 ALTER TABLE `tour_calendar` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `tour_detail`
---
 
 DROP TABLE IF EXISTS `tour_detail`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour_detail` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `file_name` varchar(255) DEFAULT NULL,
