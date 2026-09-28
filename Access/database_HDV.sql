@@ -70,11 +70,7 @@ CREATE TABLE `tour_detail` (
   KEY `tourId` (`tour_Id`),
   CONSTRAINT `tour_detail_ibfk_1` FOREIGN KEY (`tour_Id`) REFERENCES `tour` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `tour_detail`
---
 
 LOCK TABLES `tour_detail` WRITE;
 /*!40000 ALTER TABLE `tour_detail` DISABLE KEYS */;
@@ -82,9 +78,6 @@ INSERT INTO `tour_detail` VALUES (1,NULL,NULL,'Núi Phú Sĩ, Nhật Bản, Toky
 /*!40000 ALTER TABLE `tour_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `tour_order`
---
 
 DROP TABLE IF EXISTS `tour_order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -103,20 +96,13 @@ CREATE TABLE `tour_order` (
   CONSTRAINT `tour_order_ibfk_1` FOREIGN KEY (`user_Id`) REFERENCES `user` (`id`),
   CONSTRAINT `tour_order_ibfk_2` FOREIGN KEY (`tour_Id`) REFERENCES `tour` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `tour_order`
---
 
 LOCK TABLES `tour_order` WRITE;
 /*!40000 ALTER TABLE `tour_order` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `tour_type`
---
 
 DROP TABLE IF EXISTS `tour_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -126,21 +112,12 @@ CREATE TABLE `tour_type` (
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tour_type`
---
 
 LOCK TABLES `tour_type` WRITE;
 /*!40000 ALTER TABLE `tour_type` DISABLE KEYS */;
 INSERT INTO `tour_type` VALUES (1,'Tiết Kiệm'),(2,'Giá tốt'),(3,'Tiêu chuẩn'),(4,'Cao cấp');
 /*!40000 ALTER TABLE `tour_type` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `transport`
---
 
 DROP TABLE IF EXISTS `transport`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -150,21 +127,13 @@ CREATE TABLE `transport` (
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `transport`
---
 
 LOCK TABLES `transport` WRITE;
 /*!40000 ALTER TABLE `transport` DISABLE KEYS */;
 INSERT INTO `transport` VALUES (1,'Xe'),(2,'Máy bay');
 /*!40000 ALTER TABLE `transport` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -180,11 +149,6 @@ CREATE TABLE `user` (
   `role` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
@@ -219,9 +183,7 @@ LOCK TABLES `user_tour_order` WRITE;
 /*!40000 ALTER TABLE `user_tour_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `voucher`
---
+
 
 DROP TABLE IF EXISTS `voucher`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -233,25 +195,10 @@ CREATE TABLE `voucher` (
   `type` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `voucher`
---
 
 LOCK TABLES `voucher` WRITE;
 /*!40000 ALTER TABLE `voucher` DISABLE KEYS */;
 INSERT INTO `voucher` VALUES (1,'3TV1',10,0),(2,'3TV2',30,0),(3,'3TV3',500000,1);
 /*!40000 ALTER TABLE `voucher` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-11-05 23:06:48
