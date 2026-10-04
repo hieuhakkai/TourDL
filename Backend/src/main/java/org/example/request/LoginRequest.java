@@ -1,5 +1,6 @@
 package org.example.request;
 import jakarta.validation.constraints.NotBlank;
+
 public class LoginRequest {
 	@NotBlank(message = "Email cannot be blank")
 	private String emailOrUserName;
