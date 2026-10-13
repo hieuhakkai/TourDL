@@ -64,7 +64,7 @@ public class AuthController {
 			ZonedDateTime expirationTimeZonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(expirationTime),
 					ZoneId.of("Asia/Ho_Chi_Minh"));
 
-			// Định dạng thời gian theo kiểu "yyyy-MM-dd HH:mm:ss"
+			// Định dạng thời gian
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			String formattedIssuedAt = issuedAtZonedDateTime.format(formatter);
 			String formattedExpirationTime = expirationTimeZonedDateTime.format(formatter);
