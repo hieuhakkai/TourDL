@@ -47,7 +47,7 @@ public class AuthController {
 					.authenticate(new UsernamePasswordAuthenticationToken(request.getEmailOrUserName(), request.getPassword()));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 
-			// Tạo JWT token
+			// Tạo JWT token. 
 			String jwt = jwtUtils.generateTokenForUser(authentication);
 
 			// Lấy thông tin người dùng
