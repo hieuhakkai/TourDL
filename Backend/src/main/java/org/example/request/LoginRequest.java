@@ -1,9 +1,12 @@
 package org.example.request;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 public class LoginRequest {
 	@NotBlank(message = "Email cannot be blank")
+	@JsonProperty("emailOrUserName")
 	private String emailOrUserName;
 	@NotBlank(message = "password cannot be blank")
+	@JsonProperty("password")
 	private String password;
 
 	public LoginRequest(String emailOrUserName, String password) {
@@ -18,7 +21,7 @@ public class LoginRequest {
 		return emailOrUserName;
 	}
 
-	public void setEmail(@NotBlank(message = "Email cannot be blank") String email) {
+	public void setEmailOrUserName(@NotBlank(message = "Email cannot be blank") String emailOrUserName) {
 		this.emailOrUserName = emailOrUserName;
 	}
 

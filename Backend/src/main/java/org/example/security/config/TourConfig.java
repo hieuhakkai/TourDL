@@ -28,6 +28,13 @@ public class TourConfig {
 	private final TourUserDetailService tourUserDetailService;
 	private final JwtAuthEntryPoint authEntryPoint;
 	private static final List<String> SECURED_URLS = List.of("/api");
+	private static final List<String> PUBLIC_URLS = List.of(
+			"/api/auth/login",
+			"/api/User/users",
+			"/api/User/resetPassword",
+			"/api/User/savePassword",
+			"/api/User/changePassword"
+	);
 
 	public TourConfig(TourUserDetailService tourUserDetailService, JwtAuthEntryPoint authEntryPoint) {
 		this.tourUserDetailService = tourUserDetailService;
@@ -42,7 +49,30 @@ public class TourConfig {
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return new PasswordEncoder() {
+			private final PasswordEncoder bcryptEncoder = new BCryptPasswordEncoder();
+
+			@Override
+			public String encode(CharSequence rawPassword) {
+				return bcryptEncoder.encode(rawPassword);
+			}
+
+			@Override
+			public boolean matches(CharSequence rawPassword, String encodedPassword) {
+				if (encodedPassword == null) {
+					return false;
+				}
+				if (encodedPassword.equals(rawPassword)) {
+					return true;
+				}
+				return bcryptEncoder.matches(rawPassword, encodedPassword);
+			}
+
+			@Override
+			public boolean upgradeEncoding(String encodedPassword) {
+				return encodedPassword != null && encodedPassword.startsWith("$2");
+			}
+		};
 	}
 
 	@Bean
@@ -69,7 +99,9 @@ public class TourConfig {
 		http.csrf(AbstractHttpConfigurer::disable)
 				.exceptionHandling(exception -> exception.authenticationEntryPoint(authEntryPoint))
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authorizeHttpRequests(auth -> auth.requestMatchers(SECURED_URLS.toArray(String[]::new)).authenticated()
+				.authorizeHttpRequests(auth -> auth
+						.requestMatchers(PUBLIC_URLS.toArray(String[]::new)).permitAll()
+						.requestMatchers(SECURED_URLS.toArray(String[]::new)).authenticated()
 						.anyRequest().permitAll());
 		http.authenticationProvider(daoAuthenticationProvider());
 		http.addFilterBefore(authTokenFilter(), UsernamePasswordAuthenticationFilter.class);
