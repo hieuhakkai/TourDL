@@ -32,7 +32,10 @@ let apiGetTours = '';
 
 //* Hàm set lại options params cho url filter tours
 let setAPIGetTours = (params) => {
-  apiGetTours = `${URL_API_SERVER_V1}/tours/filter-tour?size=10&sort=${params.sort}&minBudget=${params.minBudget}&maxBudget=${params.maxBudget}&departure=${params.departure}&destination=${params.destination}&tourType=${params.tourType}&transportId=${params.transportId}&startDate=${params.startDate}`;
+  const startDateQuery = params.startDate
+    ? `&startDate=${encodeURIComponent(params.startDate)}`
+    : '';
+  apiGetTours = `${URL_API_SERVER_V1}/tours/filter-tour?size=10&sort=${params.sort}&minBudget=${params.minBudget || ''}&maxBudget=${params.maxBudget || ''}&departure=${params.departure || ''}&destination=${params.destination || ''}&tourType=${params.tourType || ''}&transportId=${params.transportId || ''}${startDateQuery}`;
 };
 
 let currentDay = () => {
@@ -218,11 +221,12 @@ const loadEventHTML = () => {
     );
     let sorted = document.querySelector('.tour-list__sort-box-text').dataset
       .value;
-    let dateValueInput = document.querySelector(
-      '.tour-filter__input-date'
-    ).value;
-    let date = new Date(dateValueInput);
-    date = date.toISOString().split('T')[0];
+    let dateValueInput = document.querySelector('.tour-filter__input-date').value;
+    let date = '';
+    if (dateValueInput) {
+      date = new Date(dateValueInput);
+      date = date.toISOString().split('T')[0];
+    }
     // Tạo option mới cho url filter tours
     let option = {
       sort: sorted,
@@ -482,12 +486,8 @@ let handleScrollRender = async () => {
 // Hàm set ngày hiện tại trong thẻ input ngày
 let setDate = () => {
   let dataInput = document.querySelector('.tour-filter__input-date');
-  let today = new Date(); // Lấy ngày hiện tại bằng khởi tạo đối tượng Date
-  let year = today.getFullYear(); // Lấy năm
-  let month = String(today.getMonth() + 1).padStart(2, '0'); // Lấy tháng
-  let day = String(today.getDate()).padStart(2, '0'); // Lấy ngày
-  dataInput.value = `${year}-${month}-${day}`; // Gán ngày hiện tại
-  dataInput.min = `${year}-${month}-${day}`; // Không cho chọn ngày ở phía sau ngày hiện tại
+  dataInput.value = '';
+  dataInput.min = '';
 };
 
 // Hàm tải HTML vào trong trang website

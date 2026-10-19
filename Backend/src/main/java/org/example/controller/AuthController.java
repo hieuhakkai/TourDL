@@ -25,7 +25,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @RestController
-@RequestMapping("api/auth")
+@RequestMapping("/api")
 public class AuthController {
 
 	private final AuthenticationManager authenticationManager;
@@ -39,7 +39,7 @@ public class AuthController {
 		this.jwtUtils = jwtUtils;
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/auth/login")
 	public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginRequest request) {
 		try {
 			// Xác thực thông tin đăng nhập
