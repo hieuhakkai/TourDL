@@ -6,6 +6,9 @@ const tourController = require('../controllers/tourController');
 const paymentController = require('../controllers/paymentController');
 const provinceController = require('../controllers/provinceController');
 const authController = require('../controllers/authController');
+const customerController = require('../controllers/customerController');
+const slideController = require('../controllers/slideController');
+const uploadSlide = require('../middleware/uploadMiddleware');
 const authMiddleware = require('../middleware/authMiddleware');
 const validateMiddleware = require('../middleware/validateMiddleware');
 
@@ -46,17 +49,12 @@ const initAPIs = (app) => {
     paymentController.handleCreateOrder
   );
   router.post('/auth/login', authController.handleLogin);
-  router.post(
-    '/auth/logout',
-    authMiddleware.validateAPI,
-    authMiddleware.authorizationAPI,
-    (req, res) => {
-      res.clearCookie('SessionID', { path: '/' });
-      res.status(200).json({
-        message: 'OK',
-      });
-    }
-  );
+  router.post('/auth/logout', (req, res) => {
+    res.clearCookie('SessionID', { path: '/' });
+    res.status(200).json({
+      message: 'OK',
+    });
+  });
   router.put(
     '/users/:id',
     authMiddleware.validateAPI,
@@ -64,6 +62,54 @@ const initAPIs = (app) => {
     validateMiddleware.validateDataUser,
     userController.handleUpdateInfo
   );
+  router.put(
+    '/customer/orders/:orderId/cancel',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPI,
+    customerController.handleCancelOrder
+  );
+
+  // APIs Quản lý Banner / Slide
+  router.get('/slides', slideController.handleGetActiveSlides);
+  router.get(
+    '/admin/slides',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    slideController.handleGetAllSlides
+  );
+  router.get(
+    '/admin/slides/:id',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    slideController.handleGetSlideById
+  );
+  router.post(
+    '/admin/slides',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    uploadSlide.single('image_file'),
+    slideController.handleCreateSlide
+  );
+  router.put(
+    '/admin/slides/:id',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    uploadSlide.single('image_file'),
+    slideController.handleUpdateSlide
+  );
+  router.delete(
+    '/admin/slides/:id',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    slideController.handleDeleteSlide
+  );
+  router.patch(
+    '/admin/slides/:id/toggle',
+    authMiddleware.validateAPI,
+    authMiddleware.authorizationAPIAdmin,
+    slideController.handleToggleStatus
+  );
+
   return app.use('/api/v1/', router);
 };
 
