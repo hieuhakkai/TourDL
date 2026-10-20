@@ -87,6 +87,8 @@ public class UserController {
 			throw new UserException("No user found with email: " + userEmail);
 		}
 
+
+		
 		// Tạo token mới và thiết lập thời gian hết hạn
 		PasswordResetToken token = new PasswordResetToken();
 		token.setToken(UUID.randomUUID().toString());
@@ -96,7 +98,7 @@ public class UserController {
 		token.setExpiryDate(expiryDate);
 		token.setCreatedAt(now);
 
-		// Lưu token vào cơ sở dữ liệu
+		// Lưu token vào csdl
 		passwordResetToken.createNewPasswordToken(token);
 
 		// Gửi email chứa token reset mật khẩu

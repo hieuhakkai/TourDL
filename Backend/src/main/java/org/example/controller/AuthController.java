@@ -25,7 +25,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @RestController
-@RequestMapping("api/auth")
+@RequestMapping("/api")
 public class AuthController {
 
 	private final AuthenticationManager authenticationManager;
@@ -39,7 +39,7 @@ public class AuthController {
 		this.jwtUtils = jwtUtils;
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/auth/login")
 	public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginRequest request) {
 		try {
 			// Xác thực thông tin đăng nhập
@@ -47,7 +47,7 @@ public class AuthController {
 					.authenticate(new UsernamePasswordAuthenticationToken(request.getEmailOrUserName(), request.getPassword()));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 
-			// Tạo JWT token
+			// Tạo JWT token. 
 			String jwt = jwtUtils.generateTokenForUser(authentication);
 
 			// Lấy thông tin người dùng
@@ -64,7 +64,7 @@ public class AuthController {
 			ZonedDateTime expirationTimeZonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(expirationTime),
 					ZoneId.of("Asia/Ho_Chi_Minh"));
 
-			// Định dạng thời gian theo kiểu "yyyy-MM-dd HH:mm:ss"
+			// Định dạng thời gian
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			String formattedIssuedAt = issuedAtZonedDateTime.format(formatter);
 			String formattedExpirationTime = expirationTimeZonedDateTime.format(formatter);

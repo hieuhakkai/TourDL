@@ -40,7 +40,7 @@ public class TourDetailController {
 	public boolean updateTourDetail(@RequestBody TourDetailDTO tourDetailDTO){
 		return tourDetailService.updateTourDeltail(tourDetailDTO);
 	}
-
+//add more 
 	@GetMapping("/TourDetals/total")
 	public int getTotalTour() {
 		return tourDetailService.sumTour();

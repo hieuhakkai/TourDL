@@ -10,16 +10,11 @@ public class TourDTOv2 {
     private String name;
     private double tourPrice;
     private String tourImageLink;
-
     private String tourDestination;
-
     private String tourDeparturePoint;
-
     private String nameTransport;
-
     private String nameType;
-
-
+    
     public TourDTOv2(Tour tour){
         this.tourId = tour.getId();
         this.name=tour.getName();

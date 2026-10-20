@@ -2,6 +2,7 @@ package org.example.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.io.DecodingException;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.example.security.user.TourUserDetail;
@@ -10,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +33,11 @@ public class JwtUtils {
 	}
 
 	private Key key() {
-		return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+		try {
+			return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+		} catch (DecodingException | IllegalArgumentException ex) {
+			return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
+		}
 	}
 
 	public String getUsernameFormToken(String token) {

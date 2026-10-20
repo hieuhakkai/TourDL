@@ -22,12 +22,23 @@ const sequelize = new Sequelize(
 );
 // Test connect to Database
 const connectDB = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connect Database successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
+  let retries = 0;
+  const maxRetries = 30;
+
+  while (retries < maxRetries) {
+    try {
+      await sequelize.authenticate();
+      console.log('Connect Database successfully.');
+      return;
+    } catch (error) {
+      retries += 1;
+      console.error(`Unable to connect to the database (attempt ${retries}/${maxRetries}):`, error.message);
+      if (retries >= maxRetries) {
+        console.error('Database connection failed after retries.');
+        return;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
   }
 };
-
 module.exports = connectDB;

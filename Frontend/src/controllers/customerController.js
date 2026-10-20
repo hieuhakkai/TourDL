@@ -62,7 +62,49 @@ let editInfoPage = async (req, res) => {
     return res.redirect('/');
   }
 };
+const userService = require('../services/userService');
+
+let myOrdersPage = async (req, res) => {
+  try {
+    let currentUserId = res.locals.userId;
+    if (!currentUserId) {
+      return res.redirect('/login');
+    }
+
+    let result = await userService.getOrdersByUserId(currentUserId);
+    return res.render('customer/myOrders.ejs', {
+      orders: result.data || [],
+      userId: currentUserId,
+      moment: moment,
+    });
+  } catch (error) {
+    console.log('Error myOrdersPage:', error);
+    return res.redirect('/');
+  }
+};
+
+let handleCancelOrder = async (req, res) => {
+  try {
+    let currentUserId = res.locals.userId;
+    let orderId = req.params.orderId;
+    if (!currentUserId || !orderId) {
+      return res.status(400).json({ errCode: 1, message: 'Dữ liệu không hợp lệ' });
+    }
+
+    let result = await userService.cancelUserOrder(currentUserId, orderId);
+    return res.status(200).json({
+      errCode: result.status,
+      message: result.message,
+    });
+  } catch (error) {
+    console.log('Error handleCancelOrder:', error);
+    return res.status(500).json({ errCode: 3, message: 'Lỗi máy chủ' });
+  }
+};
+
 module.exports = {
   orderPage: orderPage,
   editInfoPage: editInfoPage,
+  myOrdersPage: myOrdersPage,
+  handleCancelOrder: handleCancelOrder,
 };

@@ -5,11 +5,20 @@ const axios = require('../utils/axios.js');
 const authMiddleware = require('../middleware/authMiddleware');
 const customerController = require('../controllers/customerController.js');
 const paymentController = require('../controllers/paymentController.js');
+const slideController = require('../controllers/slideController.js');
+const slideService = require('../services/slideService.js');
 
 const initWebRouters = (app) => {
   // Trang chủ
-  router.get('/', (req, res) => {
-    return res.render('customer/home.ejs');
+  router.get('/', async (req, res) => {
+    try {
+      const slidesResult = await slideService.getActiveSlides();
+      return res.render('customer/home.ejs', {
+        slides: slidesResult.data || [],
+      });
+    } catch (e) {
+      return res.render('customer/home.ejs', { slides: [] });
+    }
   });
   // Dashboard
   router.get(
@@ -204,6 +213,46 @@ const initWebRouters = (app) => {
     authMiddleware.checkLogged,
     authMiddleware.authorizationCustomer,
     customerController.editInfoPage
+  );
+
+  // Xem danh sách tour đã đặt của khách hàng
+  router.get(
+    '/customer/orders',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationCustomer,
+    customerController.myOrdersPage
+  );
+  router.get(
+    '/my-orders',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationCustomer,
+    customerController.myOrdersPage
+  );
+
+  // Quản lý Banner / Slide
+  router.get(
+    '/admin/slides',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationAdmin,
+    slideController.slidePage
+  );
+  router.get(
+    '/slide',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationAdmin,
+    (req, res) => res.redirect('/admin/slides')
+  );
+  router.get(
+    '/admin/slides/add',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationAdmin,
+    slideController.slideAddPage
+  );
+  router.get(
+    '/admin/slides/modify/:id',
+    authMiddleware.checkLogged,
+    authMiddleware.authorizationAdmin,
+    slideController.slideModifyPage
   );
 
   return app.use('/', router);
