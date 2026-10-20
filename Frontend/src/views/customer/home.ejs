@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/grid.css" />
     <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/heroSlider.css" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,13 +31,80 @@
     <!-- Header -->
     <%- include('../partials/headerCustomer')%>
     <!-- End Header -->
+
+    <!-- Hero Slider -->
+    <% if (typeof slides !== 'undefined' && slides && slides.length > 0) { %>
+      <section id="heroSlider" class="hero-slider-section">
+        <div class="hero-slider-track">
+          <% slides.forEach((slide, index) => { %>
+            <div class="hero-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+              <div class="hero-slide-bg" style="background-image: url('<%= slide.image_url %>');"></div>
+              <div class="hero-slide-overlay"></div>
+              <div class="hero-slide-content">
+                <div class="grid wide">
+                  <div class="hero-caption-box">
+                    <div class="hero-slide-tag">
+                      <i class="fa-solid fa-compass"></i> Điểm Đến Hấp Dẫn
+                    </div>
+                    <% if (slide.title) { %>
+                      <h1 class="hero-slide-title"><%= slide.title %></h1>
+                    <% } %>
+                    <% if (slide.description) { %>
+                      <p class="hero-slide-desc"><%= slide.description %></p>
+                    <% } %>
+                    <div>
+                      <% if (slide.link_url && slide.link_url !== '/') { %>
+                        <a href="<%= slide.link_url %>" class="hero-slide-btn">
+                          Khám Phá Ngay <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                      <% } else { %>
+                        <a href="#tours-section" class="hero-slide-btn scroll-to-tours">
+                          Xem Các Tour Du Lịch <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+        <% if (slides.length > 1) { %>
+          <!-- Arrows -->
+          <button class="hero-slider-arrow hero-arrow-prev" aria-label="Slide trước">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="hero-slider-arrow hero-arrow-next" aria-label="Slide kế tiếp">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div class="hero-slider-dots">
+            <% slides.forEach((slide, index) => { %>
+              <div class="hero-dot <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>"></div>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <!-- Scroll Down indicator -->
+        <a href="#tours-section" class="hero-scroll-down" aria-label="Cuộn xuống để xem tour">
+          <div class="hero-scroll-mouse">
+            <div class="hero-scroll-wheel"></div>
+          </div>
+          <span>Cuộn xuống</span>
+        </a>
+      </section>
+    <% } %>
+    <!-- End Hero Slider -->
+
     <div class="button-top">
       <div class="button-top__item">
         <i class="fa-solid fa-caret-up"></i>
       </div>
     </div>
     <!-- Body content -->
-    <div class="homepage">
+    <div class="homepage" id="tours-section">
       <div class="grid wide homepage__content">
         <div class="row">
           <div class="col l-3">
@@ -184,6 +252,7 @@
     <!-- Javascript -->
     <%- include('../partials/baseScriptFE')%>
     <script src="/js/components/headerLogin.js"></script>
+    <script src="/js/heroSlider.js"></script>
     <script src="/js/home.js"></script>
     <script src="/js/components/buttonToTop.js"></script>
     <script src="/js/logout.js"></script>

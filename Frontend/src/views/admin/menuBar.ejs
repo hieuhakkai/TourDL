@@ -27,24 +27,26 @@
       <i class="fas fa-plane-departure" style="pointer-events: none"></i
       ><span style="pointer-events: none">Order</span>
     </div>
+    <div class="nav-button nav__link" data-link="/admin/slides">
+      <i class="fas fa-images" style="pointer-events: none"></i
+      ><span style="pointer-events: none">Banner Slide</span>
+    </div>
     <!-- <div id="nav-content-highlight"></div> -->
   </div>
   <div id="nav-footer">
     <div id="nav-footer-heading">
       <div id="nav-footer-avatar">
-        <img src="/assets/image/logo/logo-admin.png" />
+        <img src="/assets/image/logo/logo-admin.png" alt="Admin Avatar" />
       </div>
       <div id="nav-footer-titlebox">
-        <a
-          id="nav-footer-title"
-          href="https://codepen.io/uahnbu/pens/public"
-          target="_blank"
-          >Admin</a
-        >
+        <span id="nav-footer-title">Administrator</span>
+        <span id="nav-footer-subtitle">Quản trị viên</span>
       </div>
     </div>
     <div id="nav-footer-content">
-      <button class="nav-button-logout icon__logout header__infor-item logout">Đăng xuất</button>
+      <button id="admin-logout-btn" class="nav-button-logout header__infor-item logout" onclick="if(window.handleLogout){handleLogout();}">
+        <i class="fas fa-sign-out-alt"></i> <span>Đăng xuất</span>
+      </button>
     </div>
   </div>
 </div>
