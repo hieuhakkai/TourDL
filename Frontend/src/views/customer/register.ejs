@@ -7,6 +7,8 @@
     <!-- link css -->
     <link rel="stylesheet" href="/assets/css/register.css">
     <link rel="stylesheet" href="/assets/css/grid.css">
+    <script src="https://kit.fontawesome.com/7b9d660613.js" crossorigin="anonymous"></script>
+    <%- include('../partials/themeHead') %>
     <!-- end link css -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Đăng ký tài khoản</title>
@@ -14,21 +16,7 @@
 
 <body>
     <!-- Header -->
-    <header id="header" class="header">
-        <div class="header__container grid wide">
-            <div class="header__content">
-                <div class="header__logo">
-                    <a href="/" class="header__logo-link">
-                        <img src="/assets/image/logo/logo-header.png" alt="logo" class="image__logo" />
-                    </a>
-                </div>
-                <!-- <div class="header__button">
-                    <a href="#" class="button button__link">Đăng nhập</a>
-                    <a href="#" class="button button__link">Đăng ký</a>
-                </div> -->
-            </div>
-        </div>
-    </header>
+    <%- include('../partials/headerCustomer')%>
     <!-- End Header -->
 
     <form class="form-content">
@@ -94,6 +82,7 @@
     </form>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <%- include('../partials/baseScriptFE')%>
     <script type="module" src="/js/register.js"></script>
 </body>
 
