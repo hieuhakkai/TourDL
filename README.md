@@ -139,11 +139,3 @@ Toàn bộ dịch vụ (MySQL, Backend, Frontend) đã được đóng gói sẵ
 | `JWT_SECRET` | `tourdl-dev-jwt-...` | Khóa bí mật ký JWT Token |
 | `JWT_EXPIRATION` | `3600000` (1h) | Thời gian hết hạn JWT (ms) |
 
----
-
-## 🤝 Đóng góp & Phát triển
-
-1. Fork dự án và tạo nhánh mới: `git checkout -b feature/AmazingFeature`
-2. Commit thay đổi: `git commit -m 'feat: Add some AmazingFeature'`
-3. Push nhánh lên GitHub: `git push origin feature/AmazingFeature`
-4. Mở một Pull Request để cùng thảo luận và hợp nhất.
