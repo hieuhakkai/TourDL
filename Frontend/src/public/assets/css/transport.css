@@ -1,75 +1,79 @@
-/* Định dạng chung cho toàn màn hình */
+/* ========================================================
+   MODERN TRANSPORT ADMIN CSS - 3TV TRAVEL
+   ======================================================== */
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f0f0f0;
-    /* Màu nền toàn màn hình */
+  margin: 0;
+  padding: 0;
+  font-family: 'Mulish', sans-serif !important;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 .transport__admin {
-    width: 100%;
-    /* Đặt chiều rộng chiếm toàn bộ màn hình */
-    padding: 20px;
-    background-color: #ffffff;
-    /* Nền trắng cho khối chính */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    /* Đổ bóng nhẹ */
-    box-sizing: border-box;
-    /* Đảm bảo padding không làm tăng kích thước */
+  width: 100% !important;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 36px !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
 }
 
-/* Tiêu đề */
 .transport-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    text-align: center;
-    /* Căn giữa tiêu đề */
-    color: #333;
-    text-transform: uppercase;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: left;
+  color: #0f172a;
+  letter-spacing: -0.5px;
 }
 
-/* Bảng chứa dữ liệu */
 .transport__admin--table {
-    width: 100%;
-    border-collapse: collapse;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  width: 100%;
 }
 
-/* Đầu bảng */
 .transport__admin--table--header {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(77, 190, 255);
-    color: black;
-    padding: 5px 3px;
-    border-radius: 4px;
-    font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8fafc !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  color: #475569 !important;
+  padding: 14px 18px !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
 }
 
 .transport__admin--table--title {
-    flex: 1;
-    text-align: center;
-    padding: 5px;
-    font-weight: bold;
+  text-align: center;
+  flex: 1;
 }
 
-/* Dòng dữ liệu */
-.transport__admin--table .transport__admin--row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s;
+.transport__admin--table--rows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  background-color: #ffffff;
+  transition: background-color 0.15s ease;
 }
 
-.transport__admin--table .transport__admin--row:hover {
-    background-color: #f9f9f9;
+.transport__admin--table--rows:hover {
+  background-color: #f8fafc;
 }
 
-.transport__admin--table .transport__admin--cell {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-size: 16px;
+.transport__admin--table--data {
+  text-align: center;
+  flex: 1;
+  color: #1e293b;
+  font-size: 1.35rem;
+  font-weight: 500;
 }

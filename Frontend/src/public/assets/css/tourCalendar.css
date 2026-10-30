@@ -1,133 +1,127 @@
-.tour-crud{
-    display: flex;
-    width: 100%;
+/* ========================================================
+   MODERN TOUR CALENDAR ADMIN CSS - 3TV TRAVEL
+   ======================================================== */
+
+.tour-crud {
+  display: flex !important;
+  width: 100% !important;
+  flex: 1 !important;
+  background-color: #f8fafc !important;
+  min-height: 100vh !important;
 }
+
 .tour__admin--add-form {
-    width: 85%;
+  width: 100% !important;
+  padding: 30px !important;
+  box-sizing: border-box !important;
 }
-.tour__admin--add-form.show {
-    display: block;
-    top: 60px;
-}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
+  font-family: 'Mulish', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #444;
+  text-align: center;
+  margin: 10px 0 25px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
 }
-.tour__admin--table{
-    padding: 10px;
-}
-.tour__admin--table--header,
-.tour__admin--table--rows{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    border: 1px solid black;
 
+.tour__admin--table {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  padding: 0 !important;
+  margin-top: 20px !important;
 }
-.tour__admin--table--header{
-    background-color: rgb(77, 190, 255);
-    position: sticky;
-    top: 0;
-    font-weight: 750;
-    font-size: 18px;
+
+.tour__admin--table--header {
+  background: #f8fafc !important;
+  border: none !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  padding: 14px 18px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
 }
-.tour__admin--table--body{
-    width: 100%;;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border: 1px solid black;
+
+.tour__admin--table--body {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border: none !important;
 }
-.tour__admin--table--title,
-.tour__admin--table--data{   
-text-align: center;
-padding: 10px;
-width: 150px;
+
+.tour__admin--table--header,
+.tour__admin--table--rows {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+  border: none !important;
 }
-.tour__admin--table--rows:nth-child(even){
-    background-color: rgb(224, 224, 224);
+
+.tour__admin--table--rows {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 12px 18px !important;
+  transition: background-color 0.15s ease !important;
 }
-.tour__admin--table--title:nth-child(1),
-.tour__admin--table--data:nth-child(1){
-    width: 30px;
+
+.tour__admin--table--rows:hover {
+  background-color: #f8fafc !important;
 }
-.tour__admin--table--title,
-.tour__admin--table--data{
-    width: calc((100% - 30px)/6)
+
+.tour__admin--table--rows:nth-child(even) {
+  background-color: #ffffff !important;
 }
-.voucher__admin--function{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    }
-.action__search ,
-.box__action--button{
-        width: 40%;
-        border: 1px solid rgb(218, 218, 218);
-        position: relative;
-        padding: 10px ;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-    .box__action--button{
-        width: 60%;
-    }
-    .action__search--text{
-        width: 100%;
-        padding: 5px ;
-        border: none;
-    }
-    .action__search--text:focus{
-        outline: none;
-    }
-    .action__search--title,
-    .box__action--title{
-        position: absolute;
-        top:-15px ;
-        left: 20px;
-        background-color: white;
-        font-weight: 600;
-    }
-    .action__button{
-        padding: 5px;
-        border: none;
-        width: 120px;
-        font-weight: 600;
-        border-radius: 10px;
-    }
-    .action__add{
-        background-color: #39c449;
-        color: white;
-    }
-    .action__refresh{
-        background-color: #009efb;
-        color: white;
-    }
-    .action__delete{
-        background-color: darkviolet;
-        color: white;
-    }
-    .action__lock{
-        background-color: red;
-        color: white;
-    }
-    .action__warnning{
-        background-color: yellow;
-    }
-    .action__button{
-        cursor: pointer;
-    }
+
+.tour__admin--table--title {
+  color: #475569 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+}
+
+.tour__admin--table--data {
+  color: #1e293b !important;
+  font-size: 1.35rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+.tour__admin--function {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  margin-top: 20px !important;
+}
+
+.action__button {
+  padding: 9px 18px !important;
+  border-radius: 8px !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  border: none !important;
+  font-family: inherit !important;
+  background: linear-gradient(135deg, #0b5da7 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(11, 93, 167, 0.3) !important;
+}
+
+.action__button:hover {
+  background: linear-gradient(135deg, #084379 0%, #0369a1 100%) !important;
+}

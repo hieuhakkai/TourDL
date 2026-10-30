@@ -1,7 +1,6 @@
 package org.example.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
-
 public class LoginRequest {
 	@NotBlank(message = "Email cannot be blank")
 	@JsonProperty("emailOrUserName")

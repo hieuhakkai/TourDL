@@ -45,8 +45,3 @@ build/
 
 ### Ignore all pom.xml files ###
 .env
-## Java JVM crash log
-**/hs_err_pid1720*.log
-**/hs_err_pid21560*.log
-**/replay_pid1720*.log
-**/replay_pid21560*.log

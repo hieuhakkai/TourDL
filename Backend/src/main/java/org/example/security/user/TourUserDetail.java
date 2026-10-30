@@ -32,7 +32,6 @@ public class TourUserDetail implements UserDetails {
 	public TourUserDetail() {
 	}
 
-
 	public TourUserDetail(int id,String username, String email, String password, Collection<GrantedAuthority> authorities) {
 		this.id = id;
 		this.username=username;

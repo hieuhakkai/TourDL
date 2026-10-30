@@ -32,4 +32,5 @@ public class CalendarDTO {
 		this.voucher = calendar.getVoucher();
 		this.calendarSlot = calendar.getSlot();
 	}
+
 }

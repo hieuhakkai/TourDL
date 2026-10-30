@@ -225,7 +225,6 @@ const initWebRouters = (app) => {
   router.get(
     '/my-orders',
     authMiddleware.checkLogged,
-    authMiddleware.authorizationCustomer,
     customerController.myOrdersPage
   );
 

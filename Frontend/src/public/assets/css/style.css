@@ -528,16 +528,27 @@
   height: 500px !important;
 }
 
-#myPieChartTour,
 #transportChart {
   width: 100% !important;
-  height: 500px !important;
+  max-height: 340px !important;
+}
+
+#myPieChart,
+#myPieChartTour {
+  max-width: 230px !important;
+  max-height: 230px !important;
+  width: 230px !important;
+  height: 230px !important;
+  margin: 0 auto !important;
 }
 
 .chart-customer-tour__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  flex-wrap: wrap !important;
+  padding: 15px 0 !important;
+  gap: 30px !important;
 }
 
 .chart-customer-tour__item h6 {
@@ -545,4 +556,85 @@
   width: fit-content;
   text-align: center;
   margin: 10px auto 0 auto;
+}
+
+/* ========================================================
+   MODERN DASHBOARD REFINEMENTS - 3TV TRAVEL
+   ======================================================== */
+body, h1, h2, h3, h4, h5, h6, .card-title, .pagetitle h1, .dashboard .info-card h6 {
+  font-family: 'Mulish', sans-serif !important;
+}
+
+.main {
+  background-color: #f8fafc !important;
+  min-height: 100vh;
+}
+
+.pagetitle h1 {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.5px !important;
+}
+
+.card {
+  border-radius: 14px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+  background-color: #ffffff !important;
+}
+
+.card-title {
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  padding: 18px 20px 10px !important;
+}
+
+.card-body {
+  padding: 0 20px 20px !important;
+}
+
+.dashboard .info-card h6 {
+  font-size: 2.8rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.5px !important;
+}
+
+.dashboard .sales-card .card-icon {
+  color: #0b5da7 !important;
+  background: #eff6ff !important;
+  border-radius: 12px !important;
+}
+
+.dashboard .revenue-card .card-icon {
+  color: #10b981 !important;
+  background: #ecfdf5 !important;
+  border-radius: 12px !important;
+}
+
+.dashboard .customers-card .card-icon {
+  color: #f59e0b !important;
+  background: #fffbeb !important;
+  border-radius: 12px !important;
+}
+
+
+/* Compact Pie Charts */
+.chart-customer-tour__item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 280px !important;
+  margin: 0 auto !important;
+}
+
+.chart-art-top-tour {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  margin-top: 14px !important;
+  text-align: center !important;
 }

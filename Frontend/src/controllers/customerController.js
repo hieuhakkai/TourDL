@@ -67,19 +67,33 @@ const userService = require('../services/userService');
 let myOrdersPage = async (req, res) => {
   try {
     let currentUserId = res.locals.userId;
+    if (!currentUserId && req.cookies && req.cookies['SessionID']) {
+      try {
+        const jwt = require('jsonwebtoken');
+        let decoded = jwt.verify(req.cookies['SessionID'], process.env.JWT_SECRET);
+        currentUserId = decoded.userId;
+      } catch (e) {
+        console.log('Token decode error in myOrdersPage:', e.message);
+      }
+    }
+
     if (!currentUserId) {
       return res.redirect('/login');
     }
 
     let result = await userService.getOrdersByUserId(currentUserId);
     return res.render('customer/myOrders.ejs', {
-      orders: result.data || [],
+      orders: (result && result.data) || [],
       userId: currentUserId,
       moment: moment,
     });
   } catch (error) {
     console.log('Error myOrdersPage:', error);
-    return res.redirect('/');
+    return res.render('customer/myOrders.ejs', {
+      orders: [],
+      userId: res.locals.userId || null,
+      moment: moment,
+    });
   }
 };
 

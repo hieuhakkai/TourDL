@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
-
 @Service
 public class TourUserDetailService implements UserDetailsService {
 	@Autowired

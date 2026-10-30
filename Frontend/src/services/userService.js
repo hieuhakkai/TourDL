@@ -127,8 +127,58 @@ let updateInfoById = (userId, data) => {
   });
 };
 
+
+let getOrdersByUserId = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let orders = await db.UserTourOrder.findAll({
+        where: { user_Id: userId },
+        include: [
+          {
+            model: db.TourOrder,
+            as: 'tourOrder',
+            include: [
+              {
+                model: db.Tour,
+                as: 'tour',
+                include: [{ model: db.TourType, as: 'tourType' }],
+              },
+              { model: db.Member, as: 'members' },
+            ],
+          },
+        ],
+        order: [['tour_order_Id', 'DESC']],
+      });
+      return resolve({ status: 0, message: 'OK', data: orders });
+    } catch (error) {
+      console.log('Error getOrdersByUserId:', error);
+      reject(error);
+    }
+  });
+};
+
+let cancelUserOrder = (userId, orderId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let order = await db.UserTourOrder.findOne({
+        where: { user_Id: userId, tour_order_Id: orderId },
+      });
+      if (!order) return resolve({ status: 1, message: 'Không tìm thấy đơn đặt tour' });
+      if (order.status !== 0) return resolve({ status: 2, message: 'Chỉ có thể hủy đơn đang chờ xử lý' });
+      order.status = -1;
+      await order.save();
+      return resolve({ status: 0, message: 'Hủy đơn thành công' });
+    } catch (error) {
+      console.log('Error cancelUserOrder:', error);
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   getTopUser: getTopUser,
   getInfoById: getInfoById,
   updateInfoById: updateInfoById,
+  getOrdersByUserId: getOrdersByUserId,
+  cancelUserOrder: cancelUserOrder,
 };
