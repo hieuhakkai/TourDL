@@ -7,16 +7,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserTourOrderService implements IUserTourOrderService {
 	@Autowired
 	private UserTourOrderRepository userTourOrderRepository;
+
 	@Override
-	public Page<UserTourOrder> pageUTOs(Pageable pageable,int status) {
-		
-		return userTourOrderRepository.findUserTourOrderByStatusOrderByIdDesc(pageable,status);
+	public Page<UserTourOrder> pageUTOs(Pageable pageable, int status) {
+		return userTourOrderRepository.findUserTourOrderByStatusOrderByIdDesc(pageable, status);
 	}
 
 	@Override
@@ -25,6 +26,11 @@ public class UserTourOrderService implements IUserTourOrderService {
 		userTourOrderKey.setUserId(userId);
 		userTourOrderKey.setTourOrderId(orderId);
 		return userTourOrderRepository.findUserTourOrderById(userTourOrderKey);
+	}
+
+	@Override
+	public List<UserTourOrder> findUserTourOrdersByUserId(int userId) {
+		return userTourOrderRepository.findByIdUserIdOrderByIdTourOrderIdDesc(userId);
 	}
 
 	@Override
