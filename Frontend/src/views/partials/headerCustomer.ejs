@@ -10,9 +10,27 @@
           />
         </a>
       </div>
-      <div class="header__button">
-        <a href="/login" class="button button__link">Đăng nhập</a>
-        <a href="/register" class="button button__link">Đăng ký</a>
+      <div class="header__right">
+        <!-- Nút chuyển đổi chế độ Sáng / Tối -->
+        <button
+          id="theme-toggle-btn"
+          class="theme-toggle-btn"
+          type="button"
+          aria-label="Chuyển chế độ sáng/tối"
+          title="Chuyển sang chế độ tối"
+        >
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb">
+              <i class="fa-solid fa-sun icon-sun"></i>
+              <i class="fa-solid fa-moon icon-moon"></i>
+            </span>
+          </span>
+        </button>
+
+        <div class="header__button">
+          <a href="/login" class="button button__link">Đăng nhập</a>
+          <a href="/register" class="button button__link">Đăng ký</a>
+        </div>
       </div>
     </div>
   </div>

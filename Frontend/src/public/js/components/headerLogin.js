@@ -1,10 +1,20 @@
 let username = sessionStorage.getItem('username');
 let userId = sessionStorage.getItem('userID');
-const header = document.querySelector('.header__content');
-if (username) {
+const headerContainer =
+  document.querySelector('.header__right') ||
+  document.querySelector('.header__content');
+
+if (username && headerContainer) {
   let headerButtonBox = document.querySelector('.header__button');
-  headerButtonBox.classList.add('hide');
-  header.innerHTML += `<div class="header__infor-customer">
+  if (headerButtonBox) {
+    headerButtonBox.classList.add('hide');
+  }
+
+  // Tránh chèn trùng lặp nếu script được gọi nhiều lần
+  if (!document.querySelector('.header__infor-customer')) {
+    headerContainer.insertAdjacentHTML(
+      'beforeend',
+      `<div class="header__infor-customer">
         <span class="icon">
           <i class="fa-solid fa-user"></i>
         </span>
@@ -23,5 +33,7 @@ if (username) {
             </span>
           </li>
         </ul>
-      </div>`;
+      </div>`
+    );
+  }
 }
